@@ -94,7 +94,6 @@ export default {
     this.headStyle = style;
     this.checkModel.name = this.getname;
     this.treeRouters = this.getrouters;
-    console.log(this.treeRouters);
     this.treeData = this.renderTreeNodes(this.treeRouters);
   },
   computed: {
@@ -102,8 +101,6 @@ export default {
   },
   watch: {
     checkedKeys(val, event) {
-      // console.log("onCheck", val);
-      // console.log(event);
     },
   },
   methods: {

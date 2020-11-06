@@ -63,9 +63,9 @@ export default {
       loginForm: {
         username: "admin",
         password: "admin",
-        role:'用户',
+        role: "用户",
       },
-      loading:false,
+      loading: false,
       labelCol: { span: 4 },
       wrapperCol: { span: 14 },
       rules: {
@@ -81,18 +81,18 @@ export default {
         if (valid) {
           this.loading = true;
           this.$store
-          .dispatch("Login",this.loginForm)
-          .then(data=>{
-            this.loading = false
-            if(data){
-              this.$router.push("/")
-            }
-          })
-          .catch(()=>{
-            this.loading = false
-          })
-        }else{
-          this.$message.error("登录失败")
+            .dispatch("Login", this.loginForm)
+            .then((data) => {
+              this.$message.success({
+                content: "登录成功",
+              });
+              this.$router.push("/");
+              this.loading = false;
+            })
+            .catch(() => {
+              this.loading = false;
+            });
+        } else {
           return false;
         }
       });

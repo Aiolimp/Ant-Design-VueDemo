@@ -9,7 +9,7 @@
       </a-layout-header>
       <a-layout>
         <a-layout-sider>
-          <sidebar></sidebar>
+          <sidebar  :collapsed="collapsed" :parent-node-list="parentNodeList"></sidebar>
         </a-layout-sider>
         <a-layout-content
           :style="{
@@ -33,17 +33,19 @@ export default {
     MyHeader,
   },
   computed: {
-    ...mapGetters(["getsidebar"]),
-    classObj() {
-      return {
-        hideSidebar: !this.getsidebar.opened,
-        openSidebar: this.getsidebar.opened,
-      };
-    },
+    ...mapGetters(["getsidebar","getrouters"]),
   },
-  //   created(){
-  //       console.log(this.getsidebar.opened);
-  //   }
+  data(){
+    return{
+        parentNodeList:[],
+        collapsed: false,
+    }
+  },
+    mounted() {
+    this.getrouters.forEach(item => {
+      if (item.path !== '/') this.parentNodeList.push(item.path)
+    })
+  },
 };
 </script>
 <style  scoped>

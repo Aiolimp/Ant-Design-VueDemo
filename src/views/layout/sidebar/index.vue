@@ -1,12 +1,13 @@
 <template>
   <div>
     <a-menu
-      :selected-keys="selectedKeys"
-      :opnekeys="openKeys"
+      :selected-keys="currentSelectMenu"
+      :open-keys="openKeys"
       mode="inline"
       theme="dark"
       class="menu"
       @click="menuClick"
+      @openChange="onOpenChange"
     >
       <template v-for="item in getrouters">
         <SidebarItem
@@ -32,27 +33,28 @@
 <script>
 import { mapGetters } from "vuex";
 import SidebarItem from "./SidebarItem";
-import variables from "@/styles/variables.scss";
-
 export default {
   components: { SidebarItem },
   computed: {
-    ...mapGetters(["getrouters", "getsidebar", "getname"]),
-    variables() {
-      return variables;
+    ...mapGetters(["getrouters"]),
+    // 当前选中的菜单项
+    currentSelectMenu() {
+      return [this.$route.path];
+    },
+  },
+  props: {
+    parentNodeList: {
+      type: Array,
+      default: () => [],
     },
   },
   data() {
     return {
-      defaultOpenKeys: [],
-      selectedKeys: [],
       openKeys: [],
-      isCollapse: false,
       permissionItem: [],
     };
   },
   created() {
-    this.selectedKeys = [this.$route.path];
     const openKeysArr = this.$route.path.split("/");
     openKeysArr.shift();
     openKeysArr[0] = "/" + openKeysArr[0];
@@ -65,9 +67,6 @@ export default {
       stateUser = JSON.parse(sessionStorage.getItem("store")).user;
     }
     this.permissionItem = stateUser.permission;
-    this.openKeys = [
-      this.$route.path.substr(0, this.$route.path.lastIndexOf("/")),
-    ];
     if (this.permissionItem != "") {
       this.getrouters.forEach((item) => {
         var result = this.getrouters.findIndex((item) => {
@@ -94,6 +93,18 @@ export default {
     menuClick({ item, key, keyPath }) {
       // length为1则说明没有子菜单
       keyPath.length === 1 ? (this.openKeys = []) : "";
+    },
+    // 子菜单展开/关闭的回调
+    onOpenChange(openKeys) {
+      const latestOpenKey = openKeys.find(
+        (key) => this.openKeys.indexOf(key) === -1
+      );
+      this.openKeys =
+        this.parentNodeList.indexOf(latestOpenKey) === -1
+          ? openKeys
+          : latestOpenKey
+          ? [latestOpenKey]
+          : [];
     },
     // createGetrouters(getRouters){
     //   let routers = [];
