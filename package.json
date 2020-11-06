@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
@@ -11,9 +11,12 @@
     "ant-design-vue": "^1.6.5",
     "axios": "^0.20.0",
     "core-js": "^2.6.5",
+    "echarts": "^4.9.0",
     "js-cookie": "^2.2.1",
     "mockjs": "^1.1.0",
     "normalize.css": "^8.0.1",
+    "nprogress": "^0.2.0",
+    "v-charts": "^1.19.0",
     "vue": "^2.6.10",
     "vue-i18n": "^8.22.1",
     "vue-router": "^3.0.3",

@@ -1,7 +1,6 @@
 import Vue from 'vue'
-import store from '@/store'
 /**权限指令**/
-const has = Vue.directive('has', {
+const has = Vue.directive('permission', {
     bind: function (el, binding, vnode) {
         // 获取页面按钮权限
         let btnPermissionsArr = [];

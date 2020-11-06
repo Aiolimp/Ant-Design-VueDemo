@@ -15,7 +15,6 @@
           :key="item.path"
           :sidebarItem="item"
         ></SidebarItem>
-
         <a-menu-item
           v-if="!item.children && !item.hidden"
           :key="item.path"
@@ -41,6 +40,9 @@ export default {
     currentSelectMenu() {
       return [this.$route.path];
     },
+    defaultSelectedKeys(){
+      return [this.$route.path]
+    }
   },
   props: {
     parentNodeList: {

@@ -1,10 +1,16 @@
 import router from "./router/";
 import store from "./store/";
+import NProgress from 'nprogress' // progress bar
+import 'nprogress/nprogress.css' // progress bar style
+
+NProgress.configure({ showSpinner: false }) // NProgress Configuration
 
 const whiteList = ["/login"]; // 不重定向白名单
 
 // main.js
 router.beforeEach((to, from, next) => {
+
+  NProgress.start()
 
   if (store.getters.gettoken) {
     // 判断是否有token
@@ -12,6 +18,8 @@ router.beforeEach((to, from, next) => {
     if (to.path === "/login") {
       //有token , 将要去登录页,转到首页
       next({ path: "/" });
+      NProgress.done()
+
     } else {
       // "有token , 非 去登录页
       if (store.getters.getroles.length === 0) {
@@ -32,6 +40,7 @@ router.beforeEach((to, from, next) => {
           .catch(err => {
           });
       } else {
+        NProgress.done()
         next(); //当有用户权限的时候，说明所有可访问路由已生成 如访问没权限的全面会自动进入404页面
       }
     }
@@ -42,6 +51,13 @@ router.beforeEach((to, from, next) => {
       next();
     } else {
       next("/login");
+      NProgress.done()
     }
   }
 });
+
+//页面加载完成
+router.afterEach(() => {
+  NProgress.done()
+})
+

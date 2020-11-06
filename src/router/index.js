@@ -43,8 +43,8 @@ export const asyncRouterMap = [{
     },
     {
         path: "/userpower1",
+        redirect: "/userpower2/1-1",
         component: Layout,
-        redirect: '/userpower1/1-1',
         name: "权限测试",
         meta: {
             title: "权限测试",
@@ -54,8 +54,8 @@ export const asyncRouterMap = [{
         children: [{
                 path: "1-1",
                 name: "测试权限1-1",
-                redirect: '/userpower1/1-1/1-1-1',
-                component: Layout,
+                component: () =>
+                import("@/views/userpower1/1-1-1"),
                 meta: {
                     title: "1-1",
                     role: ['0', '2']
@@ -63,7 +63,6 @@ export const asyncRouterMap = [{
                 children: [{
                     path: "1-1-1",
                     name: "测试权限1-1-1",
-                    component: Layout,
                     component: () =>
                         import("@/views/userpower1/1-1-1"),
                     meta: {
@@ -180,7 +179,6 @@ const createRouter = () => new VueRouter({
     }),
     routes: commontRouterMap
 })
-
 
 const router = createRouter()
 

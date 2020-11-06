@@ -16,7 +16,7 @@
 export default {
   methods: {
      gohome(){
-      this.$router.push({path:'/home'})
+      this.$router.push({path:'/employ'})
     },
   }
 };

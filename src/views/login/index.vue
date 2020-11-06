@@ -1,44 +1,53 @@
 <template>
   <div class="login-container">
-    <a-form-model
-      class="login-form"
-      :model="loginForm"
-      :label-col="labelCol"
-      :wrapper-col="wrapperCol"
-      :rules="rules"
-      ref="loginForm"
-    >
-      <div class="title-container">
-        <h3 class="title">用户登录</h3>
-      </div>
-      <a-form-model-item prop="username">
-        <a-input
-          ref="username"
-          v-model="loginForm.username"
-          placeholder="请输入用户名"
-          name="username"
-          type="text"
-        >
-        </a-input>
-      </a-form-model-item>
-      <a-form-model-item prop="password">
-        <a-input
-          type="password"
-          ref="password"
-          v-model="loginForm.password"
-          placeholder="请输密码"
-          name="password"
-          @keyup.enter.native="handleLogin"
-        />
-      </a-form-model-item>
-      <a-button
-        :loading="loading"
-        type="primary"
-        style="width: 100%; margin-bottom: 30px"
-        @click.native.prevent="handleLogin"
-        >登录</a-button
+    <div class="loginFrom-container">
+      <a-form-model
+        class="login-form"
+        :model="loginForm"
+        :label-col="labelCol"
+        :wrapper-col="wrapperCol"
+        :rules="rules"
+        ref="loginForm"
       >
-    </a-form-model>
+        <div class="title-container">
+          <h3 class="title">用户登录</h3>
+        </div>
+        <a-form-model-item prop="username">
+          <a-input
+            ref="username"
+            v-model="loginForm.username"
+            placeholder="请输入用户名"
+            name="username"
+            type="text"
+            ><a-icon slot="prefix" type="user" />
+          </a-input>
+        </a-form-model-item>
+        <a-form-model-item prop="password">
+          <a-input
+            :type="isShowPassword ? 'input' : 'password'"
+            ref="password"
+            v-model="loginForm.password"
+            placeholder="请输密码"
+            name="password"
+            @keyup.enter.native="handleLogin"
+          >
+            <a-icon slot="prefix" type="lock" />
+            <a-icon
+              slot="suffix"
+              :type="isShowPassword ? 'eye' : 'eye-invisible'"
+              @click="() => (isShowPassword = !isShowPassword)"
+            />
+          </a-input>
+        </a-form-model-item>
+        <a-button
+          :loading="loading"
+          type="primary"
+          style="width: 100%; margin-bottom: 30px"
+          @click.native.prevent="handleLogin"
+          >登录</a-button
+        >
+      </a-form-model>
+    </div>
   </div>
 </template>
 <script>
@@ -60,6 +69,7 @@ export default {
       }
     };
     return {
+      isShowPassword: false,
       loginForm: {
         username: "admin",
         password: "admin",
@@ -100,20 +110,38 @@ export default {
   },
 };
 </script>
-<style  scoped>
+<style lang="less" scoped>
 .login-container {
-  min-height: 100%;
-  width: 100%;
+  height: 100%;
   background-color: #2d3a4b;
-  overflow: hidden;
-  padding-bottom: 300px;
+  position: relative;
+  .loginFrom-container {
+    width: 500px;
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    transform: translate(-50%, -50%);
+    /deep/ .ant-form {
+      .ant-form-item {
+        .ant-col-14 {
+          width: 100%;
+        }
+        .ant-input {
+          height: 50px;
+        }
+        .ant-form-item-children {
+          .ant-btn-primary {
+            height: 40px;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
 }
-.login-form {
-  width: 520px;
-  padding: 160px 35px 0;
-  margin: 0 auto;
-  overflow: hidden;
-}
+
 .title {
   font-size: 26px;
   color: #eee;

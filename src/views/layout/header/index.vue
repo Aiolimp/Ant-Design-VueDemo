@@ -17,7 +17,7 @@
             </a>
             <a-menu slot="overlay">
               <a-menu-item>
-                <a>修改密码</a>
+                <a @click="gohome">首页</a>
               </a-menu-item>
               <a-menu-item>
                 <a @click="logout">退出登录</a>
@@ -42,6 +42,9 @@ export default {
     async logout() {
       await this.$store.dispatch("LogOut");
       this.$router.push(`/login`);
+    },
+    gohome(){
+      this.$router.push(`/employ`)
     }
   },
   computed: {
