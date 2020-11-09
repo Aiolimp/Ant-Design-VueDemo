@@ -11,6 +11,7 @@
     "ant-design-vue": "^1.6.5",
     "axios": "^0.20.0",
     "core-js": "^2.6.5",
+    "cos-js-sdk-v5": "^1.0.4",
     "echarts": "^4.9.0",
     "js-cookie": "^2.2.1",
     "mockjs": "^1.1.0",
@@ -18,10 +19,12 @@
     "nprogress": "^0.2.0",
     "v-charts": "^1.19.0",
     "vue": "^2.6.10",
+    "vue-count-to": "^1.0.13",
     "vue-i18n": "^8.22.1",
     "vue-router": "^3.0.3",
     "vuex": "^3.5.1",
-    "vuex-persistedstate": "^4.0.0-beta.1"
+    "vuex-persistedstate": "^4.0.0-beta.1",
+    "wangeditor": "^4.2.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.4",

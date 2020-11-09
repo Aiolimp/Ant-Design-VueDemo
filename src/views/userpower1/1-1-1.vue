@@ -2,7 +2,7 @@
   <div>
     <a-page-header
       title="返回"
-      sub-title="| 测试权限1-1"
+      sub-title="| 测试权限1-1-1"
       @back="gohome()"
       style="padding: 5px"
       backIcon="<"

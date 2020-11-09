@@ -273,11 +273,6 @@ export default {
         this.buttonAdd = false;
     }
   },
-   beforeRouterEnter(to,form,next){
-    next(vContent=>{
-      vContent.initData();
-    })
-  },
   methods: {
     gohome() {
       this.$router.push({ path: "/home" });
@@ -339,6 +334,7 @@ export default {
     },
     //重置
     restting() {
+      console.log('6666');
       this.form.resetFields();
       this.initData();
     },

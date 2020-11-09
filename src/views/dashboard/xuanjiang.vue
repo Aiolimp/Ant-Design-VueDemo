@@ -256,11 +256,6 @@ export default {
     this.initData();
     window.this = this;
   },
-    beforeRouterEnter(to,form,next){
-    next(Xuanjiang=>{
-      Xuanjiang.initData();
-    })
-  },
   methods: {
     gohome(){
       this.$router.push({path:'/home'})

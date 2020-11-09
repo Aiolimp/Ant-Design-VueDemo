@@ -1,12 +1,12 @@
 <template>
   <div>
     <div class="card-container">
-      <a-tabs type="card" style="text-align: left" >
+      <a-tabs type="card" style="text-align: left" @change="onChange">
         <a-tab-pane key="1" tab="招聘职位">
-         <vContent />
+          <vContent ref="vContent" />
         </a-tab-pane>
         <a-tab-pane key="2" tab="宣讲会">
-          <Xuanjiang />
+          <Xuanjiang ref="Xuanjiang"></Xuanjiang>
         </a-tab-pane>
       </a-tabs>
     </div>
@@ -19,6 +19,7 @@ export default {
   data() {
     return {
       role: "",
+      key: "",
     };
   },
   name: "index",
@@ -27,11 +28,14 @@ export default {
     Xuanjiang: Xuanjiang,
   },
   created() {},
- 
+
   methods: {
     logout() {
       window.sessionStorage.clear();
       this.$router.push("/login");
+    },
+    onChange() {
+      this.$refs.vContent.restting();
     },
   },
 };

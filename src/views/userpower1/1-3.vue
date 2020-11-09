@@ -8,13 +8,19 @@
       backIcon="<"
     />
     <h1>1-3</h1>
+    <countTo :startVal="startVal" :endVal="endVal" :duration="3000"></countTo>
   </div>
 </template>
 
 <script>
+import countTo from "vue-count-to";
 export default {
+  components: { countTo },
   data() {
-    return {};
+    return {
+      startVal: 0,
+      endVal: 2020,
+    };
   },
   methods: {
     gohome() {

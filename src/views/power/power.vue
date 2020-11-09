@@ -176,7 +176,7 @@ export default {
 };
 </script>
 <style scoped>
-.body {
+.box_card{
   min-width: 1024px;
 }
 .checkboxgroup {

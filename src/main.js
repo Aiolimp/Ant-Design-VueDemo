@@ -12,6 +12,7 @@ import VCharts from 'v-charts'
 import "@/styles/index.scss";
 import "./permission";
 import has from './utils/permissions';
+
 Vue.config.productionTip = false
 
 Vue.prototype.$http = axios;

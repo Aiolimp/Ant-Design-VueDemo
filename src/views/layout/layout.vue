@@ -94,10 +94,8 @@ height: 100%;
     top: 0;
     left: 0;
     width: 100%;
-    min-height: 100%;
-    height: auto;
-
-  text-align: center;
+    height: 100%;
+    text-align: center;
 }
 #components-layout-demo-basic .ant-layout-header {
   background: #fff;
@@ -123,7 +121,5 @@ height: 100%;
 #components-layout-demo-basic > .ant-layout:last-child {
   margin: 0;
 }
-.ant-layout.ant-layout-has-sider{
-  max-height:880px
-}
+
 </style>
