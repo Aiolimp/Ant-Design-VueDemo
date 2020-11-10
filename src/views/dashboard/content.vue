@@ -303,6 +303,7 @@ export default {
     },
     //获取数据列表
     initData() {
+      console.log("initData")
       this.loading = true;
       this.$http
         .post("/getList", {
@@ -334,9 +335,9 @@ export default {
     },
     //重置
     restting() {
-      console.log('6666');
+      console.log('22222');
       this.form.resetFields();
-      this.initData();
+      this.searchList();
     },
     //删除
     handDelete(id) {

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="add-model">
     <a-page-header
       title="返回"
       sub-title="| 添加地区"
@@ -38,7 +38,7 @@
             :prop="'arr.' + index + '.job'"
             :rules="{
               required: true,
-              message: '职位不能为空',
+              message: '地区不能为空',
               trigger: 'blur',
             }"
           >
@@ -95,12 +95,12 @@
             ></a-input>
           </a-form-model-item>
         </template>
-        <template slot="operation" slot-scope="text, record">
+        <template slot="operation" slot-scope="text, record,index">
           <div class="editable-row-operations">
             <a-popconfirm
               v-if="data.length"
               title="确定要删除吗?"
-              @confirm="() => onDelete(record.key)"
+              @confirm="() => onDelete(record.key,index)"
             >
               <a-tag color="blue"> 删除 </a-tag>
             </a-popconfirm>
@@ -150,8 +150,14 @@ const columns = [
     scopedSlots: { customRender: "operation" },
   },
 ];
-
-const data = [];
+const data = [
+  {
+    address: [],
+    job: "",
+    key: 1604921253528,
+    name: "",
+  },
+];
 export default {
   data() {
     return {
@@ -160,11 +166,18 @@ export default {
         height: "20px",
         lineHeight: "20px",
       },
-      data: [],
+      data,
       columns,
       options: [],
       ruleForm: {
-        arr: [],
+        arr: [
+          {
+            address: ["120000", "120200", "120221"],
+            job: "研发",
+            key: 1604921253528,
+            name: "分组二",
+          },
+        ],
       },
     };
   },
@@ -181,6 +194,7 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
+          console.log(this.ruleForm.arr);
           alert("提交成功!");
         } else {
           console.log("提交失败!!");
@@ -191,16 +205,12 @@ export default {
     resetForm(formName) {
       this.$refs[formName].resetFields();
     },
-    onDelete(key) {
-      // console.log(item);
-      // console.log(this.ruleForm.arr);
+    onDelete(key,index) {
       const data = [...this.data];
       this.data = data.filter((it) => it.key !== key);
-      // let index = this.ruleForm.arr.indexOf(item);
-      // console.log(index);
-      // if(index!= -1){
-      //   this.ruleForm.arr.splice(index,1)
-      // }
+      if(index!= -1){
+        this.ruleForm.arr.splice(index,1)
+      }
     },
     add() {
       this.ruleForm.arr.push({
@@ -223,4 +233,7 @@ export default {
 };
 </script>
 <style scoped>
+.add-model {
+  min-width: 1024px;
+}
 </style>

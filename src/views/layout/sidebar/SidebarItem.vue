@@ -4,7 +4,7 @@
         class="ant-menu-submenu"
       >
         <span slot="title">
-          <a-icon type="appstore" /><span>{{ props.sidebarItem.meta.title }}</span>
+          <a-icon type="appstore" style="font-size:18px" /><span style="font-size:15px">{{ props.sidebarItem.meta.title }}</span>
         </span>
         <template v-for="it in props.sidebarItem.children">
          <SidebarItem
@@ -18,7 +18,7 @@
           class="ant-menu-item"
         >
         <router-link :to="props.sidebarItem.path + '/' + it.path">
-          <span>{{ it.meta.title }}</span>
+          <span style="font-size:15px">{{ it.meta.title }}</span>
            </router-link>
         </a-menu-item>
         </template>

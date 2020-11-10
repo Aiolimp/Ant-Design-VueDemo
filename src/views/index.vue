@@ -1,12 +1,17 @@
 <template>
   <div>
     <div class="card-container">
-      <a-tabs type="card" style="text-align: left" @change="onChange">
-        <a-tab-pane key="1" tab="招聘职位">
-          <vContent ref="vContent" />
+      <a-tabs
+        type="card"
+        style="text-align: left"
+        @change="onChange"
+        :activeKey="activityKey"
+      >
+        <a-tab-pane tab="招聘职位" :key="1">
+          <vContent :key="activityKey" />
         </a-tab-pane>
-        <a-tab-pane key="2" tab="宣讲会">
-          <Xuanjiang ref="Xuanjiang"></Xuanjiang>
+        <a-tab-pane tab="宣讲会" :key="2">
+          <Xuanjiang :key="activityKey"></Xuanjiang>
         </a-tab-pane>
       </a-tabs>
     </div>
@@ -20,6 +25,7 @@ export default {
     return {
       role: "",
       key: "",
+      activityKey: 1,
     };
   },
   name: "index",
@@ -34,8 +40,9 @@ export default {
       window.sessionStorage.clear();
       this.$router.push("/login");
     },
-    onChange() {
-      this.$refs.vContent.restting();
+    onChange(key) {
+      console.log(key);
+      this.activityKey = key;
     },
   },
 };

@@ -315,6 +315,7 @@ export default {
     },
     //重置
     restting() {
+      console.log('1111');
       this.form.resetFields();
       this.initData();
     },

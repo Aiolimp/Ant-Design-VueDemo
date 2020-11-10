@@ -1,7 +1,6 @@
 <template>
   <div>
     <a-menu
-      :selected-keys="currentSelectMenu"
       :open-keys="openKeys"
       mode="inline"
       theme="dark"
@@ -21,8 +20,8 @@
           class="ant-menu-item"
         >
           <router-link :to="item.path">
-            <a-icon :type="item.meta.icon" />
-            <span>{{ item.meta.title }}</span>
+            <a-icon :type="item.meta.icon" style="font-size:18px;margin-left:-14px" />
+            <span style="font-size:15px">{{ item.meta.title }}</span>
           </router-link>
         </a-menu-item>
       </template>
