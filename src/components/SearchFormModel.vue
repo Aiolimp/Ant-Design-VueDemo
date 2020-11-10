@@ -107,7 +107,7 @@ import InputNum from "./form/InputNum";
 import { mapGetters } from "vuex";
 export default {
   computed: {
-    ...mapGetters(["getroles", "getpermission"]),
+    ...mapGetters(["getroles"]),
   },
   components: {
     InputNum: InputNum,

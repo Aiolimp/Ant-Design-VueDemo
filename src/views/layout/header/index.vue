@@ -48,7 +48,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["getsidebar", "getname"])
+    ...mapGetters([ "getname"])
   }
 };
 </script>

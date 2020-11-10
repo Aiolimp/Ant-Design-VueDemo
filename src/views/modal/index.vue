@@ -33,7 +33,7 @@
           </a-form-model-item>
         </template>
         <template slot="job" slot-scope="text, record, index">
-          <a-form-model-item
+          <a-form-model-item  
             ref="job"
             :prop="'arr.' + index + '.job'"
             :rules="{

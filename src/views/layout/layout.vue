@@ -33,7 +33,7 @@ export default {
     MyHeader,
   },
   computed: {
-    ...mapGetters(["getsidebar","getrouters"]),
+    ...mapGetters(["getrouters"]),
   },
   data(){
     return{
@@ -107,7 +107,7 @@ height: 100%;
 #components-layout-demo-basic .ant-layout-sider {
   color: #fff;
   line-height: 120px;
-  height: 697px;
+  height: 900px;
 }
 #components-layout-demo-basic .ant-layout-content {
   background: #fff;

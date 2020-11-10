@@ -8,11 +8,14 @@
       backIcon="<"
     />
     <ve-radar :data="chartData"></ve-radar>
+    <countTo :startVal="startVal" :endVal="endVal" :duration="3000"></countTo>
   </div>
 </template>
 
 <script>
+import countTo from "vue-count-to";
 export default {
+  components: { countTo },
   data() {
     return {
       chartData: {
@@ -26,6 +29,8 @@ export default {
           { 日期: "1/6", 访问用户: 4593, 下单用户: 4293, 下单率: 0.78 },
         ],
       },
+      startVal: 0,
+      endVal: 2020,
     };
   },
   methods: {

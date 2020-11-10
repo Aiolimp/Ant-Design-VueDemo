@@ -176,7 +176,7 @@ export default {
 #components-layout-demo-basic .ant-layout-sider {
   color: #fff;
   line-height: 120px;
-  height: 697px;
+  height: 100%
 }
 #components-layout-demo-basic .ant-layout-content {
   background: #fff;

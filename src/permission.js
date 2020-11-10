@@ -10,16 +10,14 @@ const whiteList = ["/login"]; // 不重定向白名单
 // main.js
 router.beforeEach((to, from, next) => {
 
-  NProgress.start()
+  NProgress.start();
 
   if (store.getters.gettoken) {
     // 判断是否有token
-  
     if (to.path === "/login") {
       //有token , 将要去登录页,转到首页
       next({ path: "/" });
       NProgress.done()
-
     } else {
       // "有token , 非 去登录页
       if (store.getters.getroles.length === 0) {

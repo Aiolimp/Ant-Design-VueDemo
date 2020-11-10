@@ -1,6 +1,5 @@
 import { resetRouter } from '@/router';
 import serviceManger from "@/service/index"
-import Cookies from "js-cookie";
 
 let app = "my-vue-admin";
 const user = {

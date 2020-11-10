@@ -58,7 +58,9 @@ export const asyncRouterMap = [{
                 import("@/views/userpower1/1-1-1"),
                 meta: {
                     title: "1-1",
-                    role: ['0', '2']
+                    role: ['0', '2'],
+            icon: "appstore",
+
                 },
                 children: [{
                     path: "1-1-1",
@@ -67,7 +69,9 @@ export const asyncRouterMap = [{
                         import("@/views/userpower1/1-1-1"),
                     meta: {
                         title: "1-1-1",
-                        role: ['0', '1', '2']
+                        role: ['0', '1', '2'],
+            icon: "appstore",
+
                     },
                 }],
             },
@@ -77,8 +81,10 @@ export const asyncRouterMap = [{
                 component: () =>
                     import("@/views/userpower1/1-2"),
                 meta: {
-                    title: "1-2",
-                    role: ['0', '2']
+                    title: "charts",
+                    role: ['0', '2'],
+            icon: "appstore",
+
                 }
             },
             {
@@ -87,8 +93,10 @@ export const asyncRouterMap = [{
                 component: () =>
                     import("@/views/userpower1/1-3"),
                 meta: {
-                    title: "1-3",
-                    role: ['0', '1', '2']
+                    title: "ant",
+                    role: ['0', '1', '2'],
+            icon: "appstore",
+
                 }
             }
 
@@ -111,7 +119,9 @@ export const asyncRouterMap = [{
                     import("@/views/userpower2/2-1"),
                 meta: {
                     title: "2-1",
-                    role: ['0', '2']
+                    role: ['0', '2'],
+            icon: "robot",
+
                 }
             },
             {
@@ -121,7 +131,9 @@ export const asyncRouterMap = [{
                     import("@/views/userpower2/2-2"),
                 meta: {
                     title: "2-2",
-                    role: ['0', '1', '2']
+                    role: ['0', '1', '2'],
+            icon: "robot",
+
                 }
             }
         ]
@@ -134,7 +146,8 @@ export const asyncRouterMap = [{
         meta: {
             title: "添加地区",
             icon: "bug",
-            role: ['0', '1', '2']
+            role: ['0', '1', '2'],
+            
         },
         children: [{
             path: "buttonRole",
@@ -143,7 +156,7 @@ export const asyncRouterMap = [{
                 import("@/views/modal/index"),
             meta: {
                 title: "添加地区",
-                role: ['0', '1', '2']
+                role: ['0', '1', '2'],
             }
         }, ]
     },
