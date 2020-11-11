@@ -68,7 +68,7 @@ export const asyncRouterMap = [{
                     component: () =>
                         import("@/views/userpower1/1-1-1"),
                     meta: {
-                        title: "1-1-1",
+                        title: "防抖节流",
                         role: ['0', '1', '2'],
             icon: "appstore",
 
@@ -81,7 +81,7 @@ export const asyncRouterMap = [{
                 component: () =>
                     import("@/views/userpower1/1-2"),
                 meta: {
-                    title: "charts",
+                    title: "countTo",
                     role: ['0', '2'],
             icon: "appstore",
 

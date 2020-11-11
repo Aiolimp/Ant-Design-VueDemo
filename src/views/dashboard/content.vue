@@ -98,12 +98,6 @@ const columns = [
     align: "center",
   },
   {
-    title: "状态",
-    dataIndex: "num",
-    key: "num",
-    align: "center",
-  },
-  {
     title: "操作",
     key: "action",
     scopedSlots: { customRender: "action" },
