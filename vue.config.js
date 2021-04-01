@@ -1,31 +1,11 @@
-// module.exports = {
-//     devServer: {
-//         port: 8000
-//     },
-//     configureWebpack: {
-//         name: projectName,
-//         resolve: {
-//             alias: {
-//                 '@': resolve('src'),
-//                 'views': resolve('src/views')
-//             }
-//         }
-//     },
-//     chainWebpack(config) {
-//         config.module
-//             .rule('svg')
-//             .exclude.add(resolve('src/icons'))
-//             .end()
-//         config.module
-//             .rule('icons')
-//             .test(/\.svg$/)
-//             .include.add(resolve('src/icons'))
-//             .end()
-//             .use('svg-sprite-loader')
-//             .loader('svg-sprite-loader')
-//             .options({
-//                 symbolId: 'icon-[name]'
-//             })
-//             .end()
-//     }
-// }
+module.exports = {
+    //基本路径
+    publicPath: "./",
+    //打包输出目录
+    outputDir: "cloud-qf-service",
+    //放置静态资源的目录
+    assetsDir: "static",
+    //是否在保存的时候使用`eslint-loader`进行检查
+    lintOnSave: false,
+
+}

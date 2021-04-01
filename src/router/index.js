@@ -55,11 +55,11 @@ export const asyncRouterMap = [{
                 path: "1-1",
                 name: "测试权限1-1",
                 component: () =>
-                import("@/views/userpower1/1-1-1"),
+                    import("@/views/userpower1/1-1-1"),
                 meta: {
                     title: "1-1",
                     role: ['0', '2'],
-            icon: "appstore",
+                    icon: "appstore",
 
                 },
                 children: [{
@@ -70,7 +70,7 @@ export const asyncRouterMap = [{
                     meta: {
                         title: "防抖节流",
                         role: ['0', '1', '2'],
-            icon: "appstore",
+                        icon: "appstore",
 
                     },
                 }],
@@ -83,7 +83,7 @@ export const asyncRouterMap = [{
                 meta: {
                     title: "countTo",
                     role: ['0', '2'],
-            icon: "appstore",
+                    icon: "appstore",
 
                 }
             },
@@ -95,7 +95,7 @@ export const asyncRouterMap = [{
                 meta: {
                     title: "ant",
                     role: ['0', '1', '2'],
-            icon: "appstore",
+                    icon: "appstore",
 
                 }
             }
@@ -120,7 +120,7 @@ export const asyncRouterMap = [{
                 meta: {
                     title: "2-1",
                     role: ['0', '2'],
-            icon: "robot",
+                    icon: "robot",
 
                 }
             },
@@ -132,7 +132,7 @@ export const asyncRouterMap = [{
                 meta: {
                     title: "2-2",
                     role: ['0', '1', '2'],
-            icon: "robot",
+                    icon: "robot",
 
                 }
             }
@@ -147,7 +147,7 @@ export const asyncRouterMap = [{
             title: "添加地区",
             icon: "bug",
             role: ['0', '1', '2'],
-            
+
         },
         children: [{
             path: "buttonRole",
@@ -181,6 +181,50 @@ export const asyncRouterMap = [{
                 role: ['0', '2']
             }
         }, ]
+    },
+    {
+        path: "/optimize",
+        component: Layout,
+        redirect: "/optimize/index",
+        name: "优化技巧",
+        meta: {
+            title: "优化技巧",
+            icon: "aliwangwang",
+            role: ['0', '2']
+        },
+        children: [{
+                path: "index",
+                name: "优化技巧",
+                router: "/optimize/index",
+                component: () =>
+                    import("@/views/optimize/index"),
+                meta: {
+                    title: "优化技巧",
+                }
+            },
+            {
+                path: "optimize",
+                name: "函数时组件",
+                router: "/optimize/funComponents",
+                component: () =>
+                    import("@/views/optimize/funComponents"),
+                meta: {
+                    title: "函数时组件",
+                    role: ['0', '2']
+                }
+            },
+            {
+                path: "optimize/funComponents",
+                name: "组件属性穿透",
+                router: "/optimize/funComponents",
+                component: () =>
+                    import("@/views/optimize/ComponentsAttributes/index"),
+                meta: {
+                    title: "组件属性穿透",
+                    role: ['0', '2']
+                }
+            },
+        ]
     },
 
 ];
